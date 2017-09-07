@@ -25,19 +25,19 @@
 int isKaprekar(int n) {
 
   if(n < 1) {
-    return 1;
+    return 0;
   }
 
   int i;
   long square = n * (long) n;
   int numDigits = (int) log10(n) + 1;
-  long modulus = 0;
+  long modulus = 1;
   long first, second;
   for(i=1; i<=numDigits; i++) {
     modulus *= 10;
     first = square / modulus;
     second = square % modulus;
-    if(first > 0 && second > 0 && first + second == n) {
+    if(second > 0 && first + second == n) {
       return 1;
     }
   }
